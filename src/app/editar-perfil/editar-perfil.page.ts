@@ -3,6 +3,9 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PacienteService } from '../servicios/paciente.service';
 import { finalize } from 'rxjs/operators';
+import { Paciente } from '../entidades/paciente';
+import { AuthService } from '../servicios/auth.service';
+
 
 @Component({
   selector: 'app-editar-perfil',
@@ -10,59 +13,73 @@ import { finalize } from 'rxjs/operators';
   styleUrls: ['./editar-perfil.page.scss'],
 })
 export class EditarPerfilPage implements OnInit {
-  newImage:string=""
-  citaForm: FormGroup=  this.fb.group({
-    link: this.newImage,
-    cedula:[''],
-    nombre:[''],
-    apellido:[''],
-    direccion:[''],
-    correo:[''],
-    fechaNacimiento:[''],
-    celular:[''] 
-   
-  })
 
-  
+  paciente: Paciente = {
+    uid:  ""+localStorage.getItem("uid"),
+    email: '',
+    celular: '',
+    foto: '',
+    direccion: '',
+    nombre: '',
+    password: '',
+
+
+  };
+  newFile: any;
+  uid = '';
 
   constructor(
-    private pacienteService: PacienteService, 
+    private authSvc: AuthService,
+    private pacienteService: PacienteService,
     private router: Router,
-    public fb: FormBuilder
-  ) { }
-  ngOnInit() {
- 
-  }
-  
-  saveCita() {    
-    
-    console.log(this.newImage)
-    
-    if (!this.citaForm.valid) {
-      return false;
-    } else {      
-      this.pacienteService.create(this.citaForm.value).then(() => {
-        console.log('Cita creada exitosamente!')
-        this.citaForm.reset();
-        this.router.navigate(['/home']);
-      });
-    }
-    return true;
-  }
-  async newImageUpdate(event:any){
+    public fb: FormBuilder,
 
-  console.log(event)
-   
-    const path ='Pacientes'
-    //const name ="prueba1"
-    const nmem1=event.target.files[0]["name"]
-    console.log(nmem1)
-    const file =event.target.files[0]
-    const res = await this.pacienteService.cargarImanee(file,path,nmem1)
-    console.log("promesa recivida",res)
-    this.newImage = res as string
-    console.log("fin")
-   
+    public servicePaciente: PacienteService,
+
+  ) { }
+  async ngOnInit() {
+    const uid = await this.authSvc.getUid();
+    console.log(uid);
+
+  }
+
+  initPaciente() {
+    this.uid = ""+localStorage.getItem("uid");
+    this.paciente = {
+      uid: ""+localStorage.getItem("uid"),
+      email: '',
+      celular: '',
+      foto: '',
+      direccion: '',
+      nombre: '',
+      password: ''
+
+    };
+  }
+
+
+  async newImageUpload(event: any) {
+    if (event.target.files && event.target.files[0]) {
+      this.newFile = event.target.files[0];
+      const reader = new FileReader();
+      reader.onload = ((como) => {
+        this.paciente.foto = como.target?.result as string;
+      });
+      reader.readAsDataURL(event.target.files[0]);
+    }
+  }
+
+  async guardarUser() {
+    const path = 'paciente';
+    const name = this.paciente.nombre;
+    if (this.newFile !== undefined) {
+      const res = await this.servicePaciente.uploadImage(this.newFile, path, name);
+      this.paciente.foto = res;
+    }
+    this.pacienteService.createDoc(this.paciente, path, ""+localStorage.getItem("uid")).then(res => {
+      console.log('guardado con exito');
+    }).catch(error => {
+    });
   }
 
 }

@@ -32,4 +32,13 @@ export class AuthService {
     }
 
   }
+
+  async getUid() {
+    const user = await this.afAuth.currentUser
+    if (user === null) {
+      return null;
+    } else {
+      return user.uid
+    }
+  }
 }

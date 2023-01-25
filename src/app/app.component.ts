@@ -9,11 +9,12 @@ import { Router } from '@angular/router';
 export class AppComponent {
   constructor(
     private router: Router
-  ) {}
+  ) { }
 
 
-  cerrarSesion(){
+  cerrarSesion() {
     localStorage.removeItem("login")
+    localStorage.removeItem("uid")
     this.router.navigateByUrl('/login')
 
   }

@@ -24,6 +24,11 @@ export class RegisterPage implements OnInit {
       console.log("Usuario Creado")
       this.router.navigateByUrl('/home')
       localStorage.setItem("login", "true")
+
+      localStorage.setItem("login", "true")
+
+      const res = await this.authSvc.getUid();
+      localStorage.setItem("uid", "" + res)
     }
   }
 

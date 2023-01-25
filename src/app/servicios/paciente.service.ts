@@ -10,53 +10,36 @@ import { Paciente } from '../entidades/paciente';
 })
 export class PacienteService {
 
-  private dbPath = '/paciente';
-  citasRef: AngularFirestoreCollection<Paciente>;
-  
+
+
   constructor(
     private storage: AngularFireStorage,
-    private db: AngularFirestore) {    
-    this.citasRef = db.collection(this.dbPath);
-   
-  }
+    private db: AngularFirestore) {
 
-  getAll(): AngularFirestoreCollection<Paciente> {
-    return this.citasRef;
-  }
 
-  getById(id: string): Observable<any> {
-    return this.citasRef.doc(id).valueChanges();
-  }
 
-  create(cita: Paciente): any {
-    return this.citasRef.add(cita);
   }
-
-  update(id: string, cita: Paciente): Promise<void> {
-    return this.citasRef.doc(id).update(cita);
+  createDoc(data: any, path: string, id: string) {
+    const collection = this.db.collection(path);
+    return collection.doc(id).set(data);
   }
-
-  delete(id: string): Promise<void> {
-    return this.citasRef.doc(id).delete();
-  }
-  cargarImanee(file:any,path:string,nombre:string){
-    return new Promise(resolve =>{
-   
-      const filePath = path+ '/' +nombre;
+  
+  uploadImage(file: any, path: string, nombre: string): Promise<string> {
+    return new Promise(resolve => {
+      const filePath = path + '/' + nombre;
       const ref = this.storage.ref(filePath);
       const task = ref.put(file);
       task.snapshotChanges().pipe(
         finalize(() => {
-          ref.getDownloadURL().subscribe(res =>{
-            const linkimg=res
-            resolve(linkimg)
-            return
-          })
+          ref.getDownloadURL().subscribe(res => {
+            const downloadURL = res;
+            resolve(downloadURL);
+            return;
+          });
         })
-     )
-    .subscribe()
-
-    })
-
+      )
+        .subscribe();
+    });
   }
+
 }

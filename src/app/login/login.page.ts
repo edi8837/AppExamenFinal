@@ -24,6 +24,9 @@ export class LoginPage implements OnInit {
       console.log("Ingresado Correctamente")
       this.router.navigateByUrl('/home')
       localStorage.setItem("login", "true")
+
+      const res= await this.authSvc.getUid();
+      localStorage.setItem("uid", ""+res)
     }
 
   }
