@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar class="ios hydrated">
+    <ion-title class="ios title-ios hydrated">Pefil</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-list lines="full">
+    <form [formGroup]="citaForm" (ngSubmit)="saveCita()">
+      <ion-label class="normal">Foto</ion-label>
+      <ion-buttons slot="end">
+        <label for="file-update">
+          <ion-icon slot="icon-only" name="images"></ion-icon>
+        </label>
+        <input formControlName="link" (change)="newImageUpdate($event)" id="file-update" style="display: none;"
+          type="file" accept="image/*">
+      </ion-buttons>
+
+
+      <ion-img [src]="newImage"></ion-img>
+      <ion-label position="floating">Cedula</ion-label>
+      <ion-input formControlName="cedula" type="text" required></ion-input>
+
+      <ion-label position="floating">Nombre</ion-label>
+      <ion-input formControlName="nombre" type="text" required></ion-input>
+      
+      <ion-label position="floating">Apellido</ion-label>
+      <ion-input formControlName="nombre" type="text" required></ion-input>
+
+
+      <ion-label position="floating">direccion</ion-label>
+      <ion-input formControlName="direccion" type="text" required></ion-input>
+
+      <ion-label position="floating">Correo</ion-label>
+      <ion-input formControlName="correo" type="text" required></ion-input>
+
+      <ion-label position="floating">fecha de nacimiento</ion-label>
+      <ion-input formControlName="fechaNacimiento" type="text" required></ion-input>
+
+      <ion-label position="floating">Celular</ion-label>
+      <ion-input formControlName="celular" type="text" required></ion-input>
+
+      <ion-button type="submit" color="primary" shape="full" expand="block">Agendar Cita</ion-button>
+
+      <ion-button type="submit" color="danger" shape="full" expand="block" routerLink="/home">Cancelar</ion-button>
+
+    </form>
+  </ion-list>
+
+</ion-content>
