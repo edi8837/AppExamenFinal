@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PacienteService } from '../servicios/paciente.service';
 import { finalize } from 'rxjs/operators';
+import { Paciente } from '../entidades/paciente';
 
 @Component({
   selector: 'app-editar-perfil',
@@ -10,9 +11,9 @@ import { finalize } from 'rxjs/operators';
   styleUrls: ['./editar-perfil.page.scss'],
 })
 export class EditarPerfilPage implements OnInit {
-  newImage:string=""
+  newImage1 =""
   citaForm: FormGroup=  this.fb.group({
-    link: this.newImage,
+    link:[''],
     cedula:[''],
     nombre:[''],
     apellido:[''],
@@ -22,8 +23,9 @@ export class EditarPerfilPage implements OnInit {
     celular:[''] 
    
   })
-
-  
+  newfile = ""
+  name = ""
+  paciente: Paciente = new Paciente; 
 
   constructor(
     private pacienteService: PacienteService, 
@@ -33,36 +35,53 @@ export class EditarPerfilPage implements OnInit {
   ngOnInit() {
  
   }
-  
-  saveCita() {    
-    
-    console.log(this.newImage)
-    
+ 
+ 
+
+  async saveCita() {
+
+    console.log("hola" + this.paciente.nombre)
+
     if (!this.citaForm.valid) {
       return false;
-    } else {      
-      this.pacienteService.create(this.citaForm.value).then(() => {
-        console.log('Cita creada exitosamente!')
+    } else {
+      
+      const path = 'Pacientes'
+      this.paciente =this.citaForm.value
+      console.log(this.paciente)
+     
+      const res = await this.pacienteService.cargarImanee(this.newfile, path, this.name)
+
+        this.paciente.link=res 
+      
+   
+      console.log("fin")
+
+
+
+      this.pacienteService.create(this.paciente).then(() => {
+        console.log('Cita creada exitosamente!' + this.paciente)
         this.citaForm.reset();
         this.router.navigate(['/home']);
       });
+      
     }
     return true;
   }
-  async newImageUpdate(event:any){
+  async newImageUpdate(event: any) {
+    if (event.target.files && event.target.files[0]) {
+      this.newfile = event.target.files[0]
+      this.name = event.target.files[0]["name"]
+      const reader = new FileReader();
+      reader.onload = ((image) => {
+        this.newImage1 = image.target?.result as string
+      })
+      reader.readAsDataURL(event.target.files[0])
+    }
+    console.log(event)
 
-  console.log(event)
-   
-    const path ='Pacientes'
-    //const name ="prueba1"
-    const nmem1=event.target.files[0]["name"]
-    console.log(nmem1)
-    const file =event.target.files[0]
-    const res = await this.pacienteService.cargarImanee(file,path,nmem1)
-    console.log("promesa recivida",res)
-    this.newImage = res as string
-    console.log("fin")
-   
+    
   }
+
 
 }

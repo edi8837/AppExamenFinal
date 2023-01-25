@@ -39,7 +39,7 @@ export class PacienteService {
   delete(id: string): Promise<void> {
     return this.citasRef.doc(id).delete();
   }
-  cargarImanee(file:any,path:string,nombre:string){
+  cargarImanee(file:any,path:string,nombre:string):Promise<string>{
     return new Promise(resolve =>{
    
       const filePath = path+ '/' +nombre;
@@ -57,6 +57,5 @@ export class PacienteService {
     .subscribe()
 
     })
-
   }
 }
