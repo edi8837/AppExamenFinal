@@ -18,7 +18,7 @@
     <ion-input type="text" [(ngModel)]="user.password"></ion-input>
   </ion-item>
   <ion-item-divider>
-    <ion-button (click)="register()">
+    <ion-button (click)="register(user.password)">
       Registrarse
     </ion-button>
 

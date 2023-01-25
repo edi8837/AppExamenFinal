@@ -1,6 +1,9 @@
 <ion-header>
   <ion-toolbar>
     <ion-title class="ion-text-center">Sección Perfil</ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button color="dark" menu="main-menu"></ion-menu-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -11,27 +14,27 @@
       <ion-card-title class="ion-text-center">Datos Personales</ion-card-title>
     </ion-card-header>
     <ion-avatar>
-
+      <ion-img src="{{paciente.foto}}"></ion-img>
     </ion-avatar>
     <ion-item>
       <ion-label class="normal" position="floating">
         Nombre
       </ion-label>
-      <ion-input name="nombre"  class="normal" type="text" inputmode="text">
+      <ion-input name="nombre" class="normal" type="text" value="{{paciente.nombre}}" inputmode="text">
       </ion-input>
     </ion-item>
     <ion-item>
       <ion-label class="normal" position="floating">
         Dirección
       </ion-label>
-      <ion-input name="direccion"  class="normal" type="text" inputmode="text">
+      <ion-input name="direccion" class="normal" value="{{paciente.direccion}}" type="text" inputmode="text">
       </ion-input>
     </ion-item>
     <ion-item>
       <ion-label class="normal" position="floating">
         Celular
       </ion-label>
-      <ion-input name="celular"  class="normal" type="text" inputmode="text">
+      <ion-input name="celular" class="normal" type="text" value="{{paciente.celular}}" inputmode="text">
       </ion-input>
     </ion-item>
     <ion-item>
@@ -41,15 +44,26 @@
       <ion-input name="email" class="normal" type="text" value="{{paciente.email}}" inputmode="text">
       </ion-input>
     </ion-item>
-   
+
     <ion-item>
       <ion-label class="normal" position="floating">
         Password
       </ion-label>
-      <ion-input name="password" class="normal" type="text" inputmode="text">
+      <ion-input name="password" class="normal" type="text" value="{{paciente.password}}" inputmode="text">
       </ion-input>
     </ion-item>
 
+
+
+
+
   </ion-card>
+  <ion-button *ngIf="paciente.nombre!=''" expand="block" color="success" href="update-perfil">
+    Actualizar
+  </ion-button>
+
+  <ion-button *ngIf="paciente.nombre==''" expand="block" href="editar-perfil">
+    Agregar Datos
+  </ion-button>
 
 </ion-content>

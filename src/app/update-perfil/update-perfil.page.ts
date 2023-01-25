@@ -1,63 +1,53 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
-import { PacienteService } from '../servicios/paciente.service';
-import { finalize } from 'rxjs/operators';
+import { FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Paciente } from '../entidades/paciente';
 import { AuthService } from '../servicios/auth.service';
-
+import { PacienteService } from '../servicios/paciente.service';
 
 @Component({
-  selector: 'app-editar-perfil',
-  templateUrl: './editar-perfil.page.html',
-  styleUrls: ['./editar-perfil.page.scss'],
+  selector: 'app-update-perfil',
+  templateUrl: './update-perfil.page.html',
+  styleUrls: ['./update-perfil.page.scss'],
 })
-export class EditarPerfilPage implements OnInit {
-
+export class UpdatePerfilPage implements OnInit {
+  uid = localStorage.getItem("uid");
+  newFile = ''
   paciente: Paciente = {
-    uid:  ""+localStorage.getItem("uid"),
-    email: ""+localStorage.getItem("email"),
+    uid: "" + localStorage.getItem("uid"),
+    email: "" + localStorage.getItem("email"),
     celular: '',
     foto: '',
     direccion: '',
     nombre: '',
-    password: ""+localStorage.getItem("password"),
+    password: "" + localStorage.getItem("password"),
 
 
   };
-  newFile: any;
-  uid = '';
-
   constructor(
     private authSvc: AuthService,
     private pacienteService: PacienteService,
     private router: Router,
+
     public fb: FormBuilder,
 
-    public servicePaciente: PacienteService,
-
+    public servicePaciente: PacienteService
   ) { }
-  async ngOnInit() {
-    const uid = await this.authSvc.getUid();
-    console.log(uid);
 
+  ngOnInit() {
+    this.getUserInfo()
   }
+  getUserInfo() {
 
-  initPaciente() {
-    this.uid = ""+localStorage.getItem("uid");
-    this.paciente = {
-      uid: ""+localStorage.getItem("uid"),
-      email: "",
-      celular: '',
-      foto: '',
-      direccion: '',
-      nombre: '',
-      password: ''
+    console.log('getUserInfo');
+    const path = 'paciente';
+    this.pacienteService.getDoc<Paciente>(path, "" + localStorage.getItem("uid")).subscribe(res => {
+      if (res !== undefined) {
+        this.paciente = res;
 
-    };
+      }
+    });
   }
-
-
   async newImageUpload(event: any) {
     if (event.target.files && event.target.files[0]) {
       this.newFile = event.target.files[0];
@@ -68,7 +58,6 @@ export class EditarPerfilPage implements OnInit {
       reader.readAsDataURL(event.target.files[0]);
     }
   }
-
   async guardarUser() {
     const path = 'paciente';
     const name = this.paciente.nombre;
@@ -76,7 +65,7 @@ export class EditarPerfilPage implements OnInit {
       const res = await this.servicePaciente.uploadImage(this.newFile, path, name);
       this.paciente.foto = res;
     }
-    this.pacienteService.createDoc(this.paciente, path, ""+localStorage.getItem("uid")).then(res => {
+    this.pacienteService.createDoc(this.paciente, path, "" + localStorage.getItem("uid")).then(res => {
       console.log('guardado con exito');
       this.router.navigate(['../perfil'])
     }).catch(error => {

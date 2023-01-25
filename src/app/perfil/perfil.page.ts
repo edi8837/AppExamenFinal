@@ -31,7 +31,7 @@ export class PerfilPage implements OnInit {
     private authSvc: AuthService,
     private pacienteService: PacienteService,
     private router: Router,
-   public suscriberUserInfo: Subscription,
+  
     public fb: FormBuilder,
 
     public servicePaciente: PacienteService
@@ -45,9 +45,10 @@ export class PerfilPage implements OnInit {
  
     console.log('getUserInfo');
     const path = 'paciente';
-    this.suscriberUserInfo = this.pacienteService.getDoc<Paciente>(path, ""+localStorage.getItem("uid")).subscribe( res => {
+    this.pacienteService.getDoc<Paciente>(path, ""+localStorage.getItem("uid")).subscribe( res => {
            if (res !== undefined) {
              this.paciente = res;
+             
            }
     });
 }

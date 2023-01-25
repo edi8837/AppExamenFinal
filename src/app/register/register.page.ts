@@ -18,14 +18,15 @@ export class RegisterPage implements OnInit {
   ngOnInit() {
   }
 
-  async register() {
+  async register(password:string) {
     const user = await this.authSvc.register(this.user);
     if (user) {
       console.log("Usuario Creado")
       this.router.navigateByUrl('/home')
       localStorage.setItem("login", "true")
 
-      localStorage.setItem("login", "true")
+      localStorage.setItem("email", ""+user.user?.email)
+      localStorage.setItem("password", password)
 
       const res = await this.authSvc.getUid();
       localStorage.setItem("uid", "" + res)
