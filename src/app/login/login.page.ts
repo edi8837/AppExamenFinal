@@ -18,13 +18,14 @@ export class LoginPage implements OnInit {
   ngOnInit() {
   }
 
-  async login(){
+  async login(password:string){
     const user = await this.authSvc.login(this.user);
     if (user) {
       console.log("Ingresado Correctamente")
       this.router.navigateByUrl('/home')
       localStorage.setItem("login", "true")
-
+      localStorage.setItem("email", ""+user.user?.email)
+      localStorage.setItem("password", password)
       const res= await this.authSvc.getUid();
       localStorage.setItem("uid", ""+res)
     }

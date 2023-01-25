@@ -8,5 +8,10 @@ import { Component } from '@angular/core';
 export class HomePage {
 
   constructor() {}
+  ngOnInit() {
+    console.log(localStorage.getItem("email"))
+    console.log(localStorage.getItem("password"))
+  }
+
 
 }

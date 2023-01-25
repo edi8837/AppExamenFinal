@@ -19,6 +19,10 @@ export class PacienteService {
 
 
   }
+  getDoc<tipo>(path: string, id: string) {
+    const collection = this.db.collection<tipo>(path);
+    return collection.doc(id).valueChanges();
+  }
   createDoc(data: any, path: string, id: string) {
     const collection = this.db.collection(path);
     return collection.doc(id).set(data);
