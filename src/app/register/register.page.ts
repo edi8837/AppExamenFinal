@@ -23,6 +23,7 @@ export class RegisterPage implements OnInit {
     if (user) {
       console.log("Usuario Creado")
       this.router.navigateByUrl('/home')
+      localStorage.setItem("login", "true")
     }
   }
 

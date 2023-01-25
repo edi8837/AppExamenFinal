@@ -23,6 +23,7 @@ export class LoginPage implements OnInit {
     if (user) {
       console.log("Ingresado Correctamente")
       this.router.navigateByUrl('/home')
+      localStorage.setItem("login", "true")
     }
 
   }
