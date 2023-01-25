@@ -1,0 +1,60 @@
+* {
+    font-family: lato;
+}
+
+.menu-header-bg {
+    height: 180px;
+    width: 350px;
+
+    background: linear-gradient(90deg, var(--ion-color-success), var(--ion-color-success));
+
+    transform: rotate(-15deg);
+    border-radius: 10px 10px 10px 50px;
+    margin-left: -18px;
+    margin-top: -50px;
+    margin-bottom: 60px;
+}
+
+.header-content {
+    position: absolute;
+    top: 30px;
+    left: 15px;
+    display: flex;
+    align-items: center;
+
+    img {
+        display: block;
+        margin: auto;
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        border: 7px solid #5e7ccc;
+    }
+
+    h2 {
+        font-weight: 300;
+        text-align: center;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+
+    p {
+        text-align: end;
+        color: black;
+        font-weight: 100;
+    }
+}
+
+.menu-items {
+    margin: 0px;
+
+    ion-icon {
+        margin-right: 20px;
+        color: black;
+    }
+
+    ion-item {
+        padding-left: 20px;
+        margin-bottom: 10px;
+    }
+
+}
