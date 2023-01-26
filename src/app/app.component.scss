@@ -6,7 +6,7 @@
     height: 180px;
     width: 350px;
 
-    background: linear-gradient(90deg, var(--ion-color-success), var(--ion-color-success));
+    background: linear-gradient(90deg, var(--ion-color-success), var(--ion-color-primary));
 
     transform: rotate(-15deg);
     border-radius: 10px 10px 10px 50px;
@@ -28,7 +28,7 @@
         width: 80px;
         height: 80px;
         border-radius: 50%;
-        border: 7px solid #5e7ccc;
+        border: 7px solid #5f7dd1;
     }
 
     h2 {

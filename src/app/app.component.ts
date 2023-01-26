@@ -15,6 +15,11 @@ export class AppComponent {
   cerrarSesion() {
     localStorage.removeItem("login")
     localStorage.removeItem("uid")
+    localStorage.removeItem("email")
+    localStorage.removeItem("password")
+    
+    
+
     this.router.navigateByUrl('/login')
 
   }

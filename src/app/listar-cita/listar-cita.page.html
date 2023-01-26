@@ -3,19 +3,23 @@
     <ion-title>
       Citas Medicas 
     </ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button color="dark" menu="main-menu"></ion-menu-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
   
   <ion-content>
+    <div class="fondo">
     <ion-card *ngFor="let cita of citas1" class="user-list">
   
       <ion-card-header>
         <ion-card-title class="ion-text-center">Cita</ion-card-title>
       </ion-card-header>
-      <ion-avatar>
-        <ion-img src="{{cita.fotoPaciente}}"></ion-img>
-      </ion-avatar>
+      
+        <img class="avatar" src="{{cita.fotoPaciente}}">
+     
       <ion-item>
         <ion-label class="normal" position="floating">
           Nombre Doctor
@@ -44,6 +48,8 @@
   
   
     </ion-card>
+ </div>
+ 
  
   
 </ion-content>

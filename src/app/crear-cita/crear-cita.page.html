@@ -9,21 +9,21 @@
 </ion-header>
 
 <ion-content>
-   
-    <ion-label>Doctor</ion-label>
+   <div class="fondo">
+    <ion-label><h1>Doctor</h1></ion-label>
     <ion-select #seer placeholder="Seleccione Un servicio"    required  [(ngModel)]="doctor1">
       <ion-select-option *ngFor="let doctor of doctores " [value]="doctor"  >{{doctor.nombre}} </ion-select-option>
 
     </ion-select>
-    <ion-label>Nombre</ion-label>
+  
     <ion-card>
 
       <ion-card-header>
         <ion-card-title class="ion-text-center">Datos Personales</ion-card-title>
       </ion-card-header>
-      <ion-avatar>
-        <ion-img style="align-items: center;" src="{{doctor1.imagen}}"></ion-img>
-      </ion-avatar>
+     
+        <img class="avatar"style="align-items: center;" src="{{doctor1.imagen}}">
+      
       <ion-item>
         <ion-label class="normal" position="floating">
           Nombre
@@ -41,8 +41,9 @@
       </ion-item>
       
     </ion-card>
-  
+    <h3>Seleccionar horario</h3>
     <ion-datetime  [(ngModel)]="fecha" minuteValues="0" hourValues="8,9,10,11,12,13,14" ></ion-datetime>
-    <ion-button block="full" (click)="guardar()">Gerarar</ion-button>
-
+    <ion-button shape="round" expand="block" block="full" (click)="guardar()">Gerarar</ion-button>
+    <br>
+</div>
 </ion-content>

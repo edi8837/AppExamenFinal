@@ -10,6 +10,7 @@
 </ion-header>
 
 <ion-content>
+  <div class="fondo ">
   <h3 class="subtitulo encabezado">Ingrese tus datos</h3>
   <ion-item >
     <ion-label class="normal">
@@ -24,9 +25,9 @@
       </ion-button>
     </ion-buttons>
   </ion-item>
-  <ion-item>
+  
     <img class="image"  [src]="paciente.foto">
-  </ion-item>
+  
     <ion-item>
       <ion-label   class="normal" position="floating">
           Nombre
@@ -49,10 +50,11 @@
       </ion-input>
     </ion-item>
    
-    <div style="text-align: end; margin: 10px;">
-      <ion-button   (click)="guardarUser()"  class="normal" color="dark">Actualizar</ion-button>
-    </div>
-    <div style="text-align: end; margin: 10px;">
-      <ion-button   href="/perfil"   class="normal" color="danger">Cancelar</ion-button>
-    </div>
+    
+      <ion-button shape="round" expand="block"  (click)="guardarUser()"  class="normal" color="primary">Actualizar</ion-button>
+  
+    
+      <ion-button shape="round" expand="block"  href="/perfil"   class="normal" color="danger">Cancelar</ion-button>
+    <br>
+  </div>
 </ion-content>

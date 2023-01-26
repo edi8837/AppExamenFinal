@@ -5,32 +5,39 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-item>
-    <ion-label>
+  <div class="fondo">
+    <img class="avatar"
+        src="https://www.ups.edu.ec/documents/20121/77326/Isotipo+Original.png/48fb2ada-b4e7-09df-b45a-884cda62cc9b?version=1.0&t=1620746533255&imagePreview=1"
+        alt="Logo de User">
+      <br>
+      <br>
+      <br>
+      <br>
+      
+    <div class="Login-box">
+    <ion-label class="user">
       Email
     </ion-label>
-    <ion-input type="text"[(ngModel)]="user.email"  ></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label>
+    <ion-input class="user"placeholder="Ingrese su Usuario" style="text-align:center"  type="text"[(ngModel)]="user.email"  ></ion-input>
+ 
+    <ion-label class="user">
       Contraseña
     </ion-label>
-    <ion-input type="text" [(ngModel)]="user.password"></ion-input>
-  </ion-item>
+    <ion-input class="contra" placeholder="Ingrese su password" style="text-align:center;" type="password" [(ngModel)]="user.password"></ion-input>
 
-  <ion-item-divider>
-    <ion-button expand="block" color="success" (click)="login(user.password)">
+
+  
+    <ion-button class="ingresar" type="submit"  size="large" expand="block"shape="round"(click)="login(user.password)">
       Ingresar
     </ion-button>
-  </ion-item-divider>
-  <ion-item-divider>
-    <ion-button expand="block" href="/register">
+ 
+    <ion-button class="registrar"  size="large" expand="block" shape="round"  href="/register">
       Registrarse
     </ion-button>
 
 
-
-  </ion-item-divider>
+    </div>
+  </div>
 
 
 </ion-content>

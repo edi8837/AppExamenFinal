@@ -82,7 +82,7 @@ export class CrearCitaPage implements OnInit {
     this.citaService.create(data).then(() => {
       console.log('Cita creada exitosamente!')
       
-     // this.router.navigate(['/home']);
+     this.router.navigate(['/listar-cita']);
     });
 
   }

@@ -8,14 +8,15 @@
 </ion-header>
 
 <ion-content>
+  <div class="fondo">
   <ion-card>
 
     <ion-card-header>
       <ion-card-title class="ion-text-center">Datos Personales</ion-card-title>
     </ion-card-header>
-    <ion-avatar>
-      <ion-img src="{{paciente.foto}}"></ion-img>
-    </ion-avatar>
+    
+      <img class="avatar" src="{{paciente.foto}}">
+   
     <ion-item>
       <ion-label class="normal" position="floating">
         Nombre
@@ -55,12 +56,13 @@
 
 
   </ion-card>
-  <ion-button *ngIf="paciente.nombre!=''" expand="block" color="success" href="update-perfil">
+  <ion-button *ngIf="paciente.nombre!=''"  shape="round" expand="block" color="success" href="update-perfil">
     Actualizar
   </ion-button>
 
-  <ion-button *ngIf="paciente.nombre==''" expand="block" href="editar-perfil">
+  <ion-button *ngIf="paciente.nombre==''" shape="round" expand="block" href="editar-perfil">
     Agregar Datos
   </ion-button>
-
+<br>
+</div>
 </ion-content>

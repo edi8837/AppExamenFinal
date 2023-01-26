@@ -5,31 +5,27 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-item>
-    <ion-label>
+  <div class="fondo">
+    <img class="avatar" src="../../assets/icon/user.png" alt="Logo de User">
+ <br>
+    <ion-label position="floating">
       Email
-    </ion-label>
-    <ion-input type="text" [(ngModel)]="user.email"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label>
+    
+    <ion-input class="user"  type="text" [(ngModel)]="user.email"></ion-input>
+  </ion-label>
+    <ion-label position="floating">
       Contraseña
-    </ion-label>
-    <ion-input type="text" [(ngModel)]="user.password"></ion-input>
-  </ion-item>
-  <ion-item-divider>
-    <ion-button (click)="register(user.password)">
+    
+    <ion-input  class="user" type="text" [(ngModel)]="user.password"></ion-input>
+  </ion-label>
+    <ion-button type="submit" shape="round" expand="block" (click)="register(user.password)">
       Registrarse
     </ion-button>
 
-
-
-  </ion-item-divider>
-  <ion-item-divider>
-  <ion-button  href="/login" color="danger">
+  <ion-button type="submit" shape="round" expand="block" href="/login" color="danger">
     Cancelar
   </ion-button>
-</ion-item-divider>
 
+</div>
 
 </ion-content>
