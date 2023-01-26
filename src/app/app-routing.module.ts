@@ -38,6 +38,10 @@ const routes: Routes = [
     path: 'update-perfil',
     loadChildren: () => import('./update-perfil/update-perfil.module').then( m => m.UpdatePerfilPageModule)
   },
+  {
+    path: 'crear-cita',
+    loadChildren: () => import('./crear-cita/crear-cita.module').then( m => m.CrearCitaPageModule)
+  },
 
 ];
 

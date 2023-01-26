@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Cita</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+   
+    <ion-label>Doctor</ion-label>
+    <ion-select #seer placeholder="Seleccione Un servicio"    required  [(ngModel)]="doctor1">
+      <ion-select-option *ngFor="let doctor of doctores " [value]="doctor"  >{{doctor.nombre}} </ion-select-option>
+
+    </ion-select>
+    <ion-label>Nombre</ion-label>
+    <ion-card>
+
+      <ion-card-header>
+        <ion-card-title class="ion-text-center">Datos Personales</ion-card-title>
+      </ion-card-header>
+      <ion-avatar>
+        <ion-img style="align-items: center;" src="{{doctor1.imagen}}"></ion-img>
+      </ion-avatar>
+      <ion-item>
+        <ion-label class="normal" position="floating">
+          Nombre
+        </ion-label>
+        <ion-input name="nombre" class="normal" type="text" value="{{doctor1.nombre}}" inputmode="text">
+        </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label class="normal" position="floati  ng">
+          Especialidades:
+        </ion-label>
+        <br>
+        <ion-input name="direccion" class="normal" value="{{doctor1.especialidades}}" type="text" inputmode="text">
+        </ion-input>
+      </ion-item>
+    </ion-card>
+  
+    <ion-datetime [(ngModel)]="fecha"  displayFormat="MM/DD/YYYY" presentation="date-time" [preferWheel]="true"></ion-datetime>
+    <ion-button block="full" (click)="guardar()">Gerarar</ion-button>
+
+</ion-content>
