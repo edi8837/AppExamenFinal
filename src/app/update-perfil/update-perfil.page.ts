@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastController } from '@ionic/angular';
 import { Paciente } from '../entidades/paciente';
 import { AuthService } from '../servicios/auth.service';
 import { PacienteService } from '../servicios/paciente.service';
@@ -30,7 +31,7 @@ export class UpdatePerfilPage implements OnInit {
     private router: Router,
 
     public fb: FormBuilder,
-
+    private toastController: ToastController,
     public servicePaciente: PacienteService
   ) { }
 
@@ -66,10 +67,19 @@ export class UpdatePerfilPage implements OnInit {
       this.paciente.foto = res;
     }
     this.pacienteService.createDoc(this.paciente, path, "" + localStorage.getItem("uid")).then(res => {
-      console.log('guardado con exito');
+      this.mostrarMensaje('Actualizado con exito');
       this.router.navigate(['../perfil'])
     }).catch(error => {
     });
+  }
+
+  async mostrarMensaje(mensaje: any) {
+    const toast = await this.toastController.create({
+      position: 'top',
+      message: mensaje,
+      duration: 1500
+    });
+    toast.present();
   }
 
 }

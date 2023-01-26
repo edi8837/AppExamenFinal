@@ -46,12 +46,12 @@
       <ion-label   class="normal" position="floating">
           Celular
       </ion-label>
-      <ion-input name="celular"  [(ngModel)]="paciente.celular" class="normal" type="text" inputmode="text">
+      <ion-input name="celular"  [(ngModel)]="paciente.celular" class="normal" type="number" inputmode="text">
       </ion-input>
     </ion-item>
    
     
-      <ion-button shape="round" expand="block"  (click)="guardarUser()"  class="normal" color="primary">Actualizar</ion-button>
+      <ion-button shape="round" expand="block"  (click)="guardarUser()"  class="normal" color="success">Actualizar</ion-button>
   
     
       <ion-button shape="round" expand="block"  href="/perfil"   class="normal" color="danger">Cancelar</ion-button>

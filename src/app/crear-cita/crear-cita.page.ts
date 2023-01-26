@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AlertController } from '@ionic/angular';
+import { AlertController, ToastController } from '@ionic/angular';
 import { map } from 'rxjs';
 import { Doctor } from '../entidades/doctor';
 import { DoctorService } from '../servicios/doctor.service';
@@ -34,6 +34,7 @@ export class CrearCitaPage implements OnInit {
     private pacienteService: PacienteService,
     private citaService: CitasService,
     private router: Router,
+    private toastController: ToastController,
   ) { }
 
   ngOnInit() {
@@ -58,7 +59,7 @@ export class CrearCitaPage implements OnInit {
   }
   selectedTeam = '';
   onSelected(value: number) {
-    console.log("llega")
+   
     this.selectedTeam = "" + value;
   }
   currentFood1 = undefined;
@@ -78,12 +79,18 @@ export class CrearCitaPage implements OnInit {
 
 
     };
-    console.log(data)
-    this.citaService.create(data).then(() => {
-      console.log('Cita creada exitosamente!')
-      
-     this.router.navigate(['/listar-cita']);
-    });
+
+    if (data.nombreDoctor!="" && data.fecha!=null){
+      console.log(data)
+      this.citaService.create(data).then(() => {
+        this.mostrarMensaje('Cita creada exitosamente!')
+        
+       this.router.navigate(['/listar-cita']);
+      });
+    }else{
+      this.mostrarMensaje('Ingrese los datos')
+    }
+    
 
   }
   getUserInfo() {
@@ -96,6 +103,16 @@ export class CrearCitaPage implements OnInit {
 
       }
     });
+  }
+
+
+  async mostrarMensaje(mensaje: any) {
+    const toast = await this.toastController.create({
+      position: 'top',
+      message: mensaje,
+      duration: 1500
+    });
+    toast.present();
   }
 
 }
