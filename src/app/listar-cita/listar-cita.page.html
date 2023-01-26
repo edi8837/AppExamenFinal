@@ -1,9 +1,49 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>listar-cita</ion-title>
+    <ion-title>
+      Citas Medicas 
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+  
+  <ion-content>
+    <ion-card *ngFor="let cita of citas" class="user-list">
+  
+      <ion-card-header>
+        <ion-card-title class="ion-text-center">Cita</ion-card-title>
+      </ion-card-header>
+      <ion-avatar>
+        <ion-img src="{{cita.fotoPaciente}}"></ion-img>
+      </ion-avatar>
+      <ion-item>
+        <ion-label class="normal" position="floating">
+          Nombre Doctor
+        </ion-label>
+        <ion-input name="nombre" class="normal" type="text" value="{{cita.nombreDoctor}}" inputmode="text">
+        </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label class="normal" position="floating">
+          nombrePaciente
+        </ion-label>
+        <ion-input name="direccion" class="normal" value="{{cita.nombrePaciente}}" type="text" inputmode="text">
+        </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label class="normal" position="floating">
+          Fecha/Hora
+        </ion-label>
+        <ion-input name="celular" class="normal"  value="{{cita.fecha}}" inputmode="text">
+        </ion-input>
+      </ion-item>
+      
 
+  
+  
+  
+  
+    </ion-card>
+ 
+  
 </ion-content>
