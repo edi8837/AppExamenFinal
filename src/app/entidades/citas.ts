@@ -5,7 +5,7 @@ export class Citas {
     idMedico: string=""
     nombreDoctor: string="";
     nombrePaciente: string="";
-    fecha?: Timestamp;
+    fecha:any;
     atendida?:boolean
     cancelado?:boolean;   
     fotoPaciente:string=''
