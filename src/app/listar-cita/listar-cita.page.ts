@@ -36,6 +36,7 @@ export class ListarCitaPage implements OnInit {
     ).subscribe(data => {
       this.citas = data;
       console.log(this.citas);
+      
     });
   }
 }
