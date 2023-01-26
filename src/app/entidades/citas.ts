@@ -1,9 +1,9 @@
 export class Citas {
-    uid: string=""
-    Nombre: string=""
-    Docid: string="";
-    nombreDoc: string="";
+    idPaciente: string=""
+    idMedico: string=""
+    nombreDoctor: string="";
+    nombrePaciente: string="";
     fecha: string="";
-   
-    
+    atendida?:boolean
+    cancelado?:boolean;   
 }
