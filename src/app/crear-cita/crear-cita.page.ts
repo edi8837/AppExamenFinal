@@ -3,6 +3,8 @@ import { AlertController } from '@ionic/angular';
 import { map } from 'rxjs';
 import { Doctor } from '../entidades/doctor';
 import { DoctorService } from '../servicios/doctor.service';
+import { doc, setDoc, Timestamp } from "firebase/firestore";
+import { Citas } from '../entidades/citas';
 
 @Component({
   selector: 'app-crear-cita',
@@ -17,6 +19,18 @@ export class CrearCitaPage implements OnInit {
   fechaCita:Date =  new Date();
   servicioT: Doctor[] = []
   serviciof: Doctor= new Doctor
+  cita: Citas = {
+    idPaciente:""+localStorage.getItem("uid"),
+    idMedico: '',
+    nombreDoctor: '',
+    nombrePaciente: '',
+    fecha: '',
+    atendida:false,
+    cancelado:false,
+    
+
+
+  };
   fecha:Date= new Date('MM-dd-yyyy')
   hora:any
   constructor(
@@ -50,7 +64,10 @@ export class CrearCitaPage implements OnInit {
 	}
   currentFood1 = undefined;
   currentFood = undefined;
+  //Timestamp.fromDate(new Date("December 10, 1815"))
   guardar(){
+
+
     console.log("entra")
     console.log(this.fecha)
     console.log(this.hora)
