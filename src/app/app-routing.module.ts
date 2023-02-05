@@ -27,15 +27,7 @@ const routes: Routes = [
   },
   
   
-  {
-    path: 'perfil',
-    loadChildren: () => import('./perfil/perfil.module').then( m => m.PerfilPageModule)
-  },
-  {
-    path: 'update-perfil',
-    loadChildren: () => import('./update-perfil/update-perfil.module').then( m => m.UpdatePerfilPageModule)
-  },
-  
+ 
  
   {
     path: 'crear-libro',
@@ -53,6 +45,32 @@ const routes: Routes = [
     path: 'tab2',
     loadChildren: () => import('./tab2/tab2.module').then( m => m.Tab2PageModule)
   },
+  {
+    path: 'actualizar-libro',
+    loadChildren: () => import('./actualizar-libro/actualizar-libro.module').then( m => m.ActualizarLibroPageModule)
+  },
+  {
+    path: 'tabinical',
+    loadChildren: () => import('./tabinical/tabinical.module').then( m => m.TabinicalPageModule)
+  },
+ 
+  {
+    path: 'tab-inicial-cliente',
+    loadChildren: () => import('./tab-inicial-cliente/tab-inicial-cliente.module').then( m => m.TabInicialClientePageModule)
+  },
+  {
+    path: 'tab1c',
+    loadChildren: () => import('./tab1c/tab1c.module').then( m => m.Tab1cPageModule)
+  },
+  {
+    path: 'tab2c',
+    loadChildren: () => import('./tab2c/tab2c.module').then( m => m.Tab2cPageModule)
+  },  {
+    path: 'reservar',
+    loadChildren: () => import('./reservar/reservar.module').then( m => m.ReservarPageModule)
+  },
+
+
 
 
 ];

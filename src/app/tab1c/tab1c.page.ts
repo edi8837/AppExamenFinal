@@ -3,15 +3,14 @@ import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import { map } from 'rxjs';
 import { Libro } from '../entidades/libro';
-
 import { LibrosService } from '../servicios/libros.service';
 
 @Component({
-  selector: 'app-listar-libro',
-  templateUrl: './listar-libro.page.html',
-  styleUrls: ['./listar-libro.page.scss'],
+  selector: 'app-tab1c',
+  templateUrl: './tab1c.page.html',
+  styleUrls: ['./tab1c.page.scss'],
 })
-export class ListarLibroPage implements OnInit {
+export class Tab1cPage implements OnInit {
   libros: Libro[]=[]
   libros1:any=[]
   handlerMessage = '';
@@ -55,35 +54,9 @@ export class ListarLibroPage implements OnInit {
     });
     
 }
-actualizar(id:string){
+Reservar(id:string){
   localStorage.setItem("idl", id)
   this.router.navigate(['/actualizar-libro']);
 
 }
-async delete(id: string) {
-  const alert = await this.alertController.create({
-    header: '¿Esta seguro que desea eliminar el registro?',
-    buttons: [
-      {
-        text: 'No',
-        role: 'cancel',
-      },
-      {
-        text: 'Si',
-        role: 'confirm',
-        handler: () => {
-          this.libroService.delete(id).then(() => {
-            this.libros1=[]
-            this.listAllCitas();
-         
-            console.log('Cita eliminada exitosamente!')
-          }).catch(err => console.log(err));
-        },
-      },
-    ],
-  });
-
-  await alert.present();
-}
-
 }

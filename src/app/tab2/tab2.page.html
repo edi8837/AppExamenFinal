@@ -1,9 +1,62 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>tab2</ion-title>
+    <ion-title>No Disponibles</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
 
+  <ion-content>
+
+
+    <div class="fondo">
+      <ion-card *ngFor="let libro of libros1" class="user-list">
+    
+        <ion-card-header>
+          <ion-card-title class="ion-text-center" >{{libro.titulo}}</ion-card-title>
+        </ion-card-header>
+        
+          <img class="avatar" src="{{libro.foto}}">
+       
+        <ion-item>
+          <ion-label class="normal" position="floating">
+            Codigo ISBN
+          </ion-label>
+          <ion-input name="nombre" class="normal" type="text" value="{{libro.codigoISBN}}" inputmode="text">
+          </ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label class="normal" position="floating">
+            Autor
+          </ion-label>
+          <ion-input name="direccion" class="normal" value="{{libro.autor}}" type="text" inputmode="text">
+          </ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label class="normal" position="floating">
+            Editorial
+          </ion-label>
+          <ion-input name="celular" class="normal" value="{{libro.editorial}}" inputmode="text">
+          </ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label class="normal" position="floating">
+            Categoria
+          </ion-label>
+          <ion-input name="celular" class="normal" value="{{libro.categoria}}" inputmode="text">
+          </ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label class="normal" position="floating">
+            Cantidad
+          </ion-label>
+          <ion-input name="celular" class="normal" value="{{libro.Cantidad}}" inputmode="text">
+          </ion-input>
+        </ion-item>
+           
+      </ion-card>
+   </div>
+
+ 
 </ion-content>
+
+

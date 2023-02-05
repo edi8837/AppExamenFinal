@@ -1,12 +1,10 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Libros</ion-title>
+    <ion-title>libro</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
-
   <div class="fondo">
     <ion-card *ngFor="let libro of libros1" class="user-list">
   
@@ -51,31 +49,12 @@
         <ion-input name="celular" class="normal" value="{{libro.Cantidad}}" inputmode="text">
         </ion-input>
       </ion-item>
-      <ion-item>
       
-        <ion-row>
-          <ion-col center text-center>
-            <ion-button color="secondary"shape="round" type="submit" fill="solid" expand="full" (click)="actualizar(libro.id)">
-              Actualizar</ion-button>
-          </ion-col>
-          <ion-col center text-center>
-            <ion-button  color="danger" shape="round" type="submit" fill="solid"expand="full" (click)="delete(libro.id)">
-              Eliminar</ion-button>
-          </ion-col>
-        </ion-row>
-      </ion-item>
-
-
-  
-  
-  
+        <ion-button color="secondary" shape="round" type="submit"  expand="full" (click)="Reservar(libro.id)">
+          Revervar</ion-button>
+      
+        
     </ion-card>
  </div>
-
- <ion-fab slot="fixed" vertical="bottom" horizontal="end">
-  <ion-fab-button color="secondary" href="../crear-libro">
-    <ion-icon name="add"></ion-icon>
-  </ion-fab-button>
-</ion-fab>
 
 </ion-content>

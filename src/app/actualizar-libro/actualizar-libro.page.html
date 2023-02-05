@@ -1,9 +1,10 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Crear</ion-title>
+    <ion-title>Actualizar-libro</ion-title>
   </ion-toolbar>
 </ion-header>
 
+<ion-content>
   <ion-content>
     <div class="fondo">
       <h3 style="text-align: center;" class="subtitulo encabezado">Ingrese tus datos</h3>
@@ -68,11 +69,11 @@
         </ion-item>
 
 
-        <ion-button (click)="guardarUser()" shape="round" expand="block" class="normal"
-          color="primary">Guardar</ion-button>
-
-
-        <ion-button href="/tabinical" class="normal" shape="round" expand="block" color="danger">Cancelar</ion-button>
+        <ion-button shape="round" expand="block"  (click)="guardarUser()"  class="normal" color="success">Actualizar</ion-button>
+  
+    
+        <ion-button shape="round" expand="block"  href="/listar-libro"   class="normal" color="danger">Cancelar</ion-button>
         <br>
     </div>
   </ion-content>
+

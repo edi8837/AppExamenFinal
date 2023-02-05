@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { Libro } from '../entidades/libro';
 import { AuthService } from '../servicios/auth.service';
 import { LibrosService } from '../servicios/libros.service';
-import { PacienteService } from '../servicios/paciente.service';
+
 
 @Component({
   selector: 'app-crear-libro',
@@ -95,7 +95,7 @@ export class CrearLibroPage implements OnInit {
      console.log(this.libro)
      this.servicelibro.create(this.libro).then(() => {
        console.log('Cita creada exitosamente!' + this.libro)
-       this.router.navigate(['/listar-libro']);
+       this.router.navigate(['/tabinical']);
      });
    }
 
