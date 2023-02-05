@@ -14,10 +14,8 @@ const routes: Routes = [
     redirectTo: 'login',
     pathMatch: 'full'
   },
-  {
-    path: 'listar-cita',
-    loadChildren: () => import('./listar-cita/listar-cita.module').then( m => m.ListarCitaPageModule)
-  },
+  
+ 
   {
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule),
@@ -26,10 +24,9 @@ const routes: Routes = [
   {
     path: 'register',
     loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
-  },  {
-    path: 'editar-perfil',
-    loadChildren: () => import('./editar-perfil/editar-perfil.module').then( m => m.EditarPerfilPageModule)
   },
+  
+  
   {
     path: 'perfil',
     loadChildren: () => import('./perfil/perfil.module').then( m => m.PerfilPageModule)
@@ -38,10 +35,25 @@ const routes: Routes = [
     path: 'update-perfil',
     loadChildren: () => import('./update-perfil/update-perfil.module').then( m => m.UpdatePerfilPageModule)
   },
+  
+ 
   {
-    path: 'crear-cita',
-    loadChildren: () => import('./crear-cita/crear-cita.module').then( m => m.CrearCitaPageModule)
+    path: 'crear-libro',
+    loadChildren: () => import('./crear-libro/crear-libro.module').then( m => m.CrearLibroPageModule)
   },
+  {
+    path: 'listar-libro',
+    loadChildren: () => import('./listar-libro/listar-libro.module').then( m => m.ListarLibroPageModule)
+  },
+  {
+    path: 'tab1',
+    loadChildren: () => import('./tab1/tab1.module').then( m => m.Tab1PageModule)
+  },
+  {
+    path: 'tab2',
+    loadChildren: () => import('./tab2/tab2.module').then( m => m.Tab2PageModule)
+  },
+
 
 ];
 

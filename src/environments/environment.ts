@@ -5,12 +5,13 @@
 export const environment = {
   production: false,
   firebaseConfig: {
-    apiKey: "AIzaSyAnwLnQR2AZlU5FxX49pvl07dhwZtQfYOg",
-    authDomain: "citas-medicas-moviles.firebaseapp.com",
-    projectId: "citas-medicas-moviles",
-    storageBucket: "citas-medicas-moviles.appspot.com",
-    messagingSenderId: "520059290213",
-    appId: "1:520059290213:web:4985df127891e0dba07c8c"
+    apiKey: "AIzaSyDXcsHGEAn-UCJhlewm3v_AwPCAfrNW9no",
+    authDomain: "examen-15529.firebaseapp.com",
+    projectId: "examen-15529",
+    storageBucket: "examen-15529.appspot.com",
+    messagingSenderId: "174822919196",
+    appId: "1:174822919196:web:df1eac466c69a47290e3d9",
+    measurementId: "G-MREK0LFVW3"
   }
 };
 

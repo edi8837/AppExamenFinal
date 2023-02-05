@@ -11,12 +11,12 @@
     <ion-label position="floating">
       Email
     
-    <ion-input class="user"  type="text" [(ngModel)]="user.email"></ion-input>
+    <ion-input class="user" placeholder="Ingrese su Email"  type="text" [(ngModel)]="user.email"></ion-input>
   </ion-label>
     <ion-label position="floating">
       Contraseña
     
-    <ion-input  class="user" type="text" [(ngModel)]="user.password"></ion-input>
+    <ion-input  class="user"placeholder="Ingrese su password" type="password" [(ngModel)]="user.password"></ion-input>
   </ion-label>
     <ion-button type="submit" shape="round" expand="block" (click)="register(user.password)">
       Registrarse

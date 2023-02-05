@@ -1,0 +1,81 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>listar-libro</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+    <div class="fondo">
+      <ion-card *ngFor="let libro of libros1" class="user-list">
+    
+        <ion-card-header>
+          <ion-card-title class="ion-text-center" >{{libro.titulo}}</ion-card-title>
+        </ion-card-header>
+        
+          <img class="avatar" src="{{libro.foto}}">
+       
+        <ion-item>
+          <ion-label class="normal" position="floating">
+            Codigo ISBN
+          </ion-label>
+          <ion-input name="nombre" class="normal" type="text" value="{{libro.codigoISBN}}" inputmode="text">
+          </ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label class="normal" position="floating">
+            Autor
+          </ion-label>
+          <ion-input name="direccion" class="normal" value="{{libro.autor}}" type="text" inputmode="text">
+          </ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label class="normal" position="floating">
+            Editorial
+          </ion-label>
+          <ion-input name="celular" class="normal" value="{{libro.editorial}}" inputmode="text">
+          </ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label class="normal" position="floating">
+            Categoria
+          </ion-label>
+          <ion-input name="celular" class="normal" value="{{libro.categoria}}" inputmode="text">
+          </ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label class="normal" position="floating">
+            Cantidad
+          </ion-label>
+          <ion-input name="celular" class="normal" value="{{libro.Cantidad}}" inputmode="text">
+          </ion-input>
+        </ion-item>
+        <ion-item>
+        
+          <ion-row>
+            <ion-col center text-center>
+              <ion-button color="secondary"shape="round" type="submit" fill="solid" expand="full" (click)="actualizar(libro)">
+                Actualizar</ion-button>
+            </ion-col>
+            <ion-col center text-center>
+              <ion-button  color="danger" shape="round" type="submit" fill="solid"expand="full" (click)="delete(libro.id)">
+                Eliminar</ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-item>
+  
+
+    
+    
+    
+      </ion-card>
+   </div>
+
+   <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button color="secondary" routerLink="../crear-libro">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  
+</ion-content>
