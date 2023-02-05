@@ -6,6 +6,7 @@
 
 <ion-content>
   <div class="fondo">
+    <ion-searchbar [debounce]="1000" (ionChange)="buscar($event)"></ion-searchbar>
     <ion-card *ngFor="let libro of libros1" class="user-list">
   
       <ion-card-header>

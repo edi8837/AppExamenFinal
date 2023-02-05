@@ -13,6 +13,9 @@ import { LibrosService } from '../servicios/libros.service';
 export class Tab1cPage implements OnInit {
   libros: Libro[]=[]
   libros1:any=[]
+  libros2:any=[]
+  
+   libro!:Libro
   handlerMessage = '';
   roleMessage = '';
   constructor(
@@ -55,8 +58,43 @@ export class Tab1cPage implements OnInit {
     
 }
 Reservar(id:string){
-  localStorage.setItem("idl", id)
-  this.router.navigate(['/actualizar-libro']);
+  localStorage.setItem("idR", id)
+  this.router.navigate(['/reservar']);
 
 }
+
+buscar(event:any){
+const val=event.target.value
+console.log(val)
+if(val==""){
+  this.listAllCitas()
+}else{
+  this.libros2=[]
+for (let index1 = 0; index1 <this.libros1?.length; index1++){
+    if(this.libros1[index1].categoria==val){
+      
+    
+      this.libros2.push(this.libros[index1])
+      console.log(this.libros2)
+    }
+    if(this.libros1[index1].codigoISBN==val){
+      console.log(val)
+    
+      this.libros2.push(this.libros[index1])
+      console.log(this.libros2)
+    }if(this.libros1[index1].titulo==val){
+      console.log(val)
+      this.libros2.push(this.libros[index1])
+      console.log(this.libros2)
+    }
+}
+console.log(this.libros2)
+this.libros1=[]
+this.libros1=this.libros2
+
+}
+
+
+}
+
 }
