@@ -72,6 +72,7 @@ if(val==""){
   this.libros2=[]
 for (let index1 = 0; index1 <this.libros1?.length; index1++){
     if(this.libros1[index1].categoria==val){
+
       this.libros2.push(this.libros[index1])
       console.log(this.libros2)
     }else
