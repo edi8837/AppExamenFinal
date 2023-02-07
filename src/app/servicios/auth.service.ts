@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
 import { User } from '../entidades/user';
-import { GoogleAuthProvider, user } from '@angular/fire/auth'
+import { getAuth,signInWithPopup, GoogleAuthProvider, user } from '@angular/fire/auth'
 import { Cliente } from '../entidades/cliente';
 
 @Injectable({
@@ -36,9 +36,11 @@ export class AuthService {
 
   }
   async loginGoogle() {
+    const auth = getAuth();
+    const provider = new GoogleAuthProvider();
     try {
 
-      const res = this.afAuth.signInWithPopup(new GoogleAuthProvider);
+      const res =signInWithPopup(auth,provider);
      
 
       if((await res).user?.uid!=''){

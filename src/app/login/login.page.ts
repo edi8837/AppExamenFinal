@@ -40,11 +40,14 @@ export class LoginPage implements OnInit {
     try {
       
     const res= await this.authSvc.loginGoogle();
-    console.log(res)
+    console.log("hola" +res)
       this.clinte=res
-     await this.router.navigate(['/tab-inicial-cliente'])
+      if(res!=undefined){
+
+     console.log ("iniciar")
+    await this.router.navigate(['/tab-inicial-cliente'])
     
-    
+    }
    
     } catch (error) {
       console.log(error)
