@@ -21,6 +21,7 @@ export class ActualizarLibroPage implements OnInit {
     titulo: '',
     categoria: '',
     Cantidad: 0,
+    estado:""
 
 
   };

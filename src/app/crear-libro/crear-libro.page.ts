@@ -20,6 +20,7 @@ export class CrearLibroPage implements OnInit {
     titulo: '',
     categoria: '',
     Cantidad: 0,
+    estado:""
 
 
   };
@@ -51,6 +52,7 @@ export class CrearLibroPage implements OnInit {
     titulo: '',
     categoria: '',
     Cantidad: 0,
+    estado:""
 
 
 
@@ -92,6 +94,7 @@ export class CrearLibroPage implements OnInit {
        const res = await this.servicelibro.uploadImage(this.newFile, path, name);
        this.libro.foto = res;
      }
+     this.libro.estado = "Disponible";
      console.log(this.libro)
      this.servicelibro.create(this.libro).then(() => {
        console.log('Cita creada exitosamente!' + this.libro)

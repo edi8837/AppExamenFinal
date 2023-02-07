@@ -23,6 +23,7 @@ export class ReservarPage implements OnInit {
     titulo: '',
     categoria: '',
     Cantidad: 0,
+    estado:""
 
 
   };
@@ -108,10 +109,16 @@ export class ReservarPage implements OnInit {
         this.ReservarService.create(this.rervar).then(() => {
           console.log('reservacion creada exitosamente!' + this.rervar)
         })
+        if(this.libro.Cantidad==0){
+          this.libro.estado="No disponible"
+          this.libroService.update("" + localStorage.getItem("idR"), this.libro,).then(() => {
+            console.log('Cita creada exitosamente!' + this.libro)
+        })}
         this.libroService.update("" + localStorage.getItem("idR"), this.libro,).then(() => {
           console.log('Cita creada exitosamente!' + this.libro)
           this.router.navigate(['/tab-inicial-cliente']);
         });
+      
 
       } else
         if (this.libro.Cantidad < this.cantidad) {

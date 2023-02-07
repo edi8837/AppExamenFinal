@@ -6,5 +6,6 @@ export class Libro {
     categoria: string="";
     foto: string="";
     Cantidad:number=0;
+    estado: string="";
     
 }
