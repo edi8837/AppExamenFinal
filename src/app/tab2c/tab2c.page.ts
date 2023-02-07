@@ -37,7 +37,7 @@ export class Tab2cPage implements OnInit {
       )
     ).subscribe(data => {
 
-
+      this.libros1=[]
       this.reservadas = data;
       //console.log(this.citas);
       for (let index = 0; index <this.reservadas?.length; index++) {
