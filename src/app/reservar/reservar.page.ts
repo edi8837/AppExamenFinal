@@ -3,8 +3,10 @@ import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 import { Libro } from '../entidades/libro';
+import { Reservar } from '../entidades/reservar';
 import { AuthService } from '../servicios/auth.service';
 import { LibrosService } from '../servicios/libros.service';
+import { ReservarService } from '../servicios/reservar.service';
 
 @Component({
   selector: 'app-reservar',
@@ -24,10 +26,20 @@ export class ReservarPage implements OnInit {
 
 
   };
+  rervar: Reservar={
+    name:""+localStorage.getItem("nombreC"),
+    email:""+localStorage.getItem("EmailC"),
+    photo: ''+localStorage.getItem("Fotho"),
+    uid: ''+localStorage.getItem("idC"),
+    idP: "" + localStorage.getItem("idR"),
+    cantidadR: 0
+  }
+  
   cantidad :any;
   constructor(
     private authSvc: AuthService,
     private libroService: LibrosService,
+    private ReservarService:ReservarService,
     private router: Router,
     private toastController: ToastController,
   
@@ -72,11 +84,15 @@ export class ReservarPage implements OnInit {
    if(this.cantidad>0){
     if(this.libro.Cantidad>=this.cantidad &&this.libro.Cantidad>=0){
       this.mostrarMensaje("si se puede guardar")
+      this
 
       this.libro.Cantidad= this.libro.Cantidad-this.cantidad
       console.log(this.libro)
-
-      
+        this.rervar.cantidadR=this.cantidad
+        console.log(this.rervar)
+      this.ReservarService.create(this.rervar).then(() => {
+        console.log('reservacion creada exitosamente!' + this.rervar)
+      })
       this.libroService.update("" + localStorage.getItem("idR"),this.libro,).then(() => {
         console.log('Cita creada exitosamente!' + this.libro)
         this.router.navigate(['/tab-inicial-cliente']);

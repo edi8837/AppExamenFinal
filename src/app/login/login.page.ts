@@ -11,6 +11,7 @@ import { AuthService } from '../servicios/auth.service';
 })
 export class LoginPage implements OnInit {
    user: User = new User();
+  clinte :any
   constructor(
     private router :Router,
     private authSvc: AuthService,
@@ -24,7 +25,7 @@ export class LoginPage implements OnInit {
     const user = await this.authSvc.login(this.user);
     if (user) {
       this.mostrarMensaje('Ingresado Correctamente')
-      this.router.navigateByUrl('/home')
+      this.router.navigateByUrl('/tabinical')
       localStorage.setItem("login", "true")
       localStorage.setItem("email", ""+user.user?.email)
       localStorage.setItem("password", password)
@@ -32,6 +33,27 @@ export class LoginPage implements OnInit {
       localStorage.setItem("uid", ""+res)
     }
 
+  }
+ 
+  async googleLogin(){
+    console.log('entraaaaaaaaaaaaaa')
+    try {
+      
+    const res= await this.authSvc.loginGoogle();
+    console.log(res)
+      this.clinte=res
+     await this.router.navigate(['/tab-inicial-cliente'])
+    
+    
+   
+    } catch (error) {
+      console.log(error)
+    }
+
+    localStorage.setItem("idC",this.clinte["uid"])
+    localStorage.setItem("nombreC",this.clinte["displayName"])
+    localStorage.setItem("EmailC",this.clinte["email"])
+    localStorage.setItem("Fotho",this.clinte["photoURL"])
   }
 
   async mostrarMensaje(mensaje: any) {

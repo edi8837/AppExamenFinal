@@ -6,49 +6,34 @@
 
 <ion-content>
   <div class="fondo">
+
+
+    <ion-card  class="user-list">
+  
+      <ion-card-header>
+        <ion-card-title class="ion-text-center" >{{libro.titulo}}</ion-card-title>
+      </ion-card-header>
+      
+        <img class="avatar" src="{{libro.foto}}">
+      <ion-card-content>  
+    
+        <ion-card-subtitle><b>Codigo ISBN: </b>{{libro.codigoISBN}}</ion-card-subtitle>
+        <ion-card-subtitle><b>Autor </b>{{libro.autor}}</ion-card-subtitle>
+        <ion-card-subtitle><b>Editorial </b>{{libro.editorial}}</ion-card-subtitle>
+        <ion-card-subtitle><b>Categoria </b>{{libro.categoria}}</ion-card-subtitle>
+        <ion-card-subtitle><b>Cantidad </b>{{libro.Cantidad}}</ion-card-subtitle>
+     
+      </ion-card-content>
+
+      <ion-footer>
+      
+     
+      
+      
     
   
      
-        <ion-card-title class="ion-text-center" >{{libro.titulo}}</ion-card-title>
-   
-      
-        <img class="avatar" src="{{libro.foto}}">
-     
-      <ion-item>
-        <ion-label class="normal" position="floating">
-          Codigo ISBN
-        </ion-label>
-        <ion-input name="nombre" class="normal" type="text" value="{{libro.codigoISBN}}" inputmode="text">
-        </ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label class="normal" position="floating">
-          Autor
-        </ion-label>
-        <ion-input name="direccion" class="normal" value="{{libro.autor}}" type="text" inputmode="text">
-        </ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label class="normal" position="floating">
-          Editorial
-        </ion-label>
-        <ion-input name="celular" class="normal" value="{{libro.editorial}}" inputmode="text">
-        </ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label class="normal" position="floating">
-          Categoria
-        </ion-label>
-        <ion-input name="celular" class="normal" value="{{libro.categoria}}" inputmode="text">
-        </ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label class="normal" position="floating">
-          Cantidad
-        </ion-label>
-        <ion-input name="celular" class="normal" value="{{libro.Cantidad}}" inputmode="text">
-        </ion-input>
-      </ion-item>
+        
 
         <h1>Ingrese cantidad</h1>
        
@@ -57,6 +42,7 @@
       <ion-button color="secondary" shape="round" type="submit"  expand="full" (click)="guardar()">
         Guardar</ion-button>
         
-    
+      </ion-footer>
+    </ion-card>
  </div>
 </ion-content>

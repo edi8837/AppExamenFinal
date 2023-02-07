@@ -13,8 +13,8 @@ const routes: Routes = [
         loadChildren: () => import('../tab1c/tab1c.module').then(m => m.Tab1cPageModule)
       },
       {
-        path: 'tabc2',
-        loadChildren: () => import('../tab2c/tab2c.module').then(m => m.Tab2cPageModule)
+        path: 'tab2c',
+        loadChildren: () => import('../tab2c/tab2c.module').then( m => m.Tab2cPageModule)
       },
       
       {
