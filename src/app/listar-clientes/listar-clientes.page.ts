@@ -6,12 +6,11 @@ import { Reservar } from '../entidades/reservar';
 import { ReservarService } from '../servicios/reservar.service';
 
 @Component({
-  selector: 'app-tab2c',
-  templateUrl: './tab2c.page.html',
-  styleUrls: ['./tab2c.page.scss'],
+  selector: 'app-listar-clientes',
+  templateUrl: './listar-clientes.page.html',
+  styleUrls: ['./listar-clientes.page.scss'],
 })
-export class Tab2cPage implements OnInit {
-
+export class ListarClientesPage implements OnInit {
   reservadas:Reservar[]=[]
   libros1:any=[]
   handlerMessage = '';
@@ -36,27 +35,28 @@ export class Tab2cPage implements OnInit {
         )
       )
     ).subscribe(data => {
-
-
       this.reservadas = data;
       //console.log(this.citas);
-      for (let index = 0; index <this.reservadas?.length; index++) {
-        if(this.reservadas[index].uid==""+localStorage.getItem("idC")){
-          
-          
-           this.libros1.push(this.reservadas[index])
-         
-       }
-    
-     }
-
-      
     console.log(""+localStorage.getItem("uid"))
     console.log(this.reservadas);
-   
+    this.libros1=[]
+    for (let index = 0; index <this.reservadas?.length; index++) {
+      if(this.reservadas[index].idP==""+localStorage.getItem("idp")){
+        
+        
+         this.libros1.push(this.reservadas[index])
+       
+     }
+  
+   }
+   console.log(this.libros1);
+       
+     });
+  
   console.log(this.libros1);
       
-    });
+  
+    
     
 }
 

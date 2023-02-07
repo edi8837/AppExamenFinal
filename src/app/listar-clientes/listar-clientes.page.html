@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>listarClientes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="fondo">
+    <ion-card  class="card-item" *ngFor="let clients of libros1">
+     
+    
+      <ion-card-header>
+        <ion-card-title style="text-align: center;">{{clients.name}}</ion-card-title>
+      </ion-card-header>
+      <img src={{clients.photo}} alt="ion">
+      <ion-card-content>
+        <ion-card-subtitle><b>Email: </b>{{clients.email}}</ion-card-subtitle>
+        
+        
+      </ion-card-content>
+      <ion-footer>
+        
+       
+      </ion-footer>
+    </ion-card>
+  </div>
+  </ion-content>
+  

@@ -69,6 +69,10 @@ const routes: Routes = [
     path: 'reservar',
     loadChildren: () => import('./reservar/reservar.module').then( m => m.ReservarPageModule)
   },
+  {
+    path: 'listar-clientes',
+    loadChildren: () => import('./listar-clientes/listar-clientes.module').then( m => m.ListarClientesPageModule)
+  },
 
 
 

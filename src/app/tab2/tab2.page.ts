@@ -60,6 +60,10 @@ actualizar(id:string){
   this.router.navigate(['/actualizar-libro']);
 
 }
+VerCliente(id:string){
+  localStorage.setItem("idp", id)
+  this.router.navigate(['/listar-clientes']);
+}
 async delete(id: string) {
   const alert = await this.alertController.create({
     header: '¿Esta seguro que desea eliminar el registro?',

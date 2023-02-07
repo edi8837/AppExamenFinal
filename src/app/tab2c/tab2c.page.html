@@ -1,27 +1,31 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>tab2c</ion-title>
+    <ion-title>Reservadas</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <div class="fondo">
-  <ion-card  class="card-item" *ngFor="let clients of reservadas">
+  <ion-card  class="card-item" *ngFor="let Reserva of libros1">
    
   
     <ion-card-header>
-      <ion-card-title style="text-align: center;">{{clients.name}}</ion-card-title>
+      <ion-card-title style="text-align: center;">{{Reserva.titulo}}</ion-card-title>
     </ion-card-header>
-    <img src={{clients.photo}} alt="ion">
+    <img src={{Reserva.foto}} alt="ion">
     <ion-card-content>
-      <ion-card-subtitle><b>Tipo de identificacion: </b>{{clients.idP}}</ion-card-subtitle>
-      <ion-card-subtitle><b>Numero: </b>{{clients.email}}</ion-card-subtitle>
-      <ion-card-subtitle><b>Telefono: </b>: {{clients.name}} </ion-card-subtitle>
+      <ion-card-subtitle><b>Codigo ISBN: </b>{{Reserva.idP}}</ion-card-subtitle>
+      <ion-card-subtitle><b>Autor: </b>{{Reserva.autor}}</ion-card-subtitle>
+      <ion-card-subtitle><b>Editorial : </b>: {{Reserva.editorial}} </ion-card-subtitle>
+      <ion-card-subtitle><b>Categoria  </b>{{Reserva.categoria}}</ion-card-subtitle>
+      <ion-card-subtitle><b>Cantidad Reserada: </b>{{Reserva.cantidadR}}</ion-card-subtitle>
       
     </ion-card-content>
     <ion-footer>
-      
-     
+     <h3>Cliente</h3> 
+     <ion-label><b>Nombre </b>{{Reserva.name}}</ion-label>
+     <br>
+     <ion-label><b>Email </b>{{Reserva.email}}</ion-label>
     </ion-footer>
   </ion-card>
 </div>

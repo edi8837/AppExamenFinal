@@ -24,8 +24,13 @@
             <ion-card-subtitle><b>Editorial </b>{{libro.editorial}}</ion-card-subtitle>
             <ion-card-subtitle><b>Categoria </b>{{libro.categoria}}</ion-card-subtitle>
             <ion-card-subtitle><b>Cantidad </b>{{libro.Cantidad}}</ion-card-subtitle>
-         
+        
           </ion-card-content>
+          <ion-footer>
+            <ion-button color="secondary" shape="round" type="submit"  expand="full" (click)="VerCliente(libro.id)">
+              Ver Clientes</ion-button>
+            </ion-footer>
+            
         </ion-card>
      </div>
   
