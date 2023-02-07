@@ -9,28 +9,33 @@
 
 <ion-content>
   <div class="fondo">
-  <ion-card  class="card-item" *ngFor="let Reserva of libros1">
-   
-  
-    <ion-card-header>
-      <ion-card-title style="text-align: center;" >{{Reserva.titulo}}</ion-card-title>
-    </ion-card-header>
-    <img  class="avatar" src={{Reserva.foto}} alt="ion">
-    <ion-card-content>
-      <ion-card-subtitle><b>Codigo ISBN: </b>{{Reserva.idP}}</ion-card-subtitle>
-      <ion-card-subtitle><b>Autor: </b>{{Reserva.autor}}</ion-card-subtitle>
-      <ion-card-subtitle><b>Editorial : </b>: {{Reserva.editorial}} </ion-card-subtitle>
-      <ion-card-subtitle><b>Categoria  </b>{{Reserva.categoria}}</ion-card-subtitle>
-      <ion-card-subtitle><b>Cantidad Reserada: </b>{{Reserva.cantidadR}}</ion-card-subtitle>
-   
-      
-    </ion-card-content>
-    <ion-footer>
-     <h3>Cliente</h3> 
-     <ion-label><b>Nombre </b>{{Reserva.name}}</ion-label>
-     <br>
-     <ion-label><b>Email </b>{{Reserva.email}}</ion-label>
-    </ion-footer>
-  </ion-card>
-</div>
+    <ion-card class="card-item" *ngFor="let Reserva of libros1">
+
+
+      <ion-card-header>
+        <ion-card-title style="text-align: center;">{{Reserva.titulo}}</ion-card-title>
+      </ion-card-header>
+      <img class="avatar" src={{Reserva.foto}} alt="ion">
+      <ion-card-content>
+        <ion-label><b>Codigo ISBN: </b>{{Reserva.codigoISBN}}</ion-label>
+        <br>
+        <ion-label><b>Autor: </b>{{Reserva.autor}}</ion-label>
+        <br>
+        <ion-label><b>Editorial: </b>{{Reserva.editorial}} </ion-label>
+        <br>
+        <ion-label><b>Categoria: </b>{{Reserva.categoria}}</ion-label>
+        <br>
+        <ion-label><b>Cantidad Reserada: </b>{{Reserva.cantidadR}}</ion-label>
+        <br>
+
+
+      </ion-card-content>
+      <ion-footer>
+        <h3>Cliente</h3>
+        <ion-label><b>Nombre </b>{{Reserva.name}}</ion-label>
+        <br>
+        <ion-label><b>Email </b>{{Reserva.email}}</ion-label>
+      </ion-footer>
+    </ion-card>
+  </div>
 </ion-content>

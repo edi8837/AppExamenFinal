@@ -65,7 +65,10 @@ export class ActualizarLibroPage implements OnInit {
   }
    async guardarUser() {
    
-   
+   if(this.libro.Cantidad>0){
+    console.log("poner Estado")
+    this.libro.estado="Disponible"
+   }
    this.libroService.update("" + localStorage.getItem("idl"),this.libro,).then(() => {
     console.log('Cita creada exitosamente!' + this.libro)
     this.router.navigate(['/tabinical']);
