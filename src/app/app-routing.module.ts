@@ -66,7 +66,11 @@ const routes: Routes = [
   {
     path: 'listar-clientes',
     loadChildren: () => import('./listar-clientes/listar-clientes.module').then( m => m.ListarClientesPageModule)
+  },  {
+    path: 'home',
+    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   },
+
 
 
 
