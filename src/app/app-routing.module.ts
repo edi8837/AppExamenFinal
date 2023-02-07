@@ -4,11 +4,7 @@ import { IngresadoGuard } from './ingresado.guard';
 import { NoIngresadoGuard } from './no-ingresado.guard';
 
 const routes: Routes = [
-  {
-    path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule),
-    canActivate:[IngresadoGuard]
-  },
+ 
   {
     path: '',
     redirectTo: 'login',
@@ -26,9 +22,6 @@ const routes: Routes = [
     loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
   },
   
-  
- 
- 
   {
     path: 'crear-libro',
     loadChildren: () => import('./crear-libro/crear-libro.module').then( m => m.CrearLibroPageModule)
@@ -65,7 +58,8 @@ const routes: Routes = [
   {
     path: 'tab2c',
     loadChildren: () => import('./tab2c/tab2c.module').then( m => m.Tab2cPageModule)
-  },  {
+  },
+  {
     path: 'reservar',
     loadChildren: () => import('./reservar/reservar.module').then( m => m.ReservarPageModule)
   },

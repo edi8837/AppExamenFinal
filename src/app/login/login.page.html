@@ -5,39 +5,42 @@
 </ion-header>
 
 <ion-content>
-
-    <img class="avatar"
+<div class="fondo">
+    <img style="text-align: center;"
       src="https://www.ups.edu.ec/documents/20121/77326/Isotipo+Original.png/48fb2ada-b4e7-09df-b45a-884cda62cc9b?version=1.0&t=1620746533255&imagePreview=1"
       alt="Logo de User">
     <br>
 
 
-
-    <ion-item>
-      <ion-input type="text" name="email" placeholder="Email" type="text" [(ngModel)]="user.email">
-        <ion-icon name="mail-outline"></ion-icon>
-      </ion-input>
-    </ion-item>
-
-    <ion-item>
-
-      <ion-input type="password" name="password"  [(ngModel)]="user.password" placeholder="**************">
-        <ion-icon name="lock-closed"></ion-icon>
-      </ion-input>
-    </ion-item>
-
+    <ion-label  style="text-align: center;" position="floating">
+     <br>
    
+ 
+    
+      <ion-input  style="text-align: center;" class="user"  type="text" name="email" placeholder="Email" type="text" [(ngModel)]="user.email">
+       
+      </ion-input>
+  
+    </ion-label>
+    
 
+    <ion-label  style="text-align: center;" position="floating">
+     
+      <br>
+      <ion-input style="text-align: center;" class="user" type="password" name="password"  [(ngModel)]="user.password" placeholder="contraseña">
+        
+      </ion-input>
+    </ion-label>
     <div class="sign-btn-wrap">
       <ion-button shape="round" type="submit" fill="solid" class="sign-btn" (click)="login(user.password)">Login</ion-button>
     </div>
     <div class="sign-btn-wrap">
-      <ion-button size="small" fill="outline" shape="round" color="light" href="/register">
+      <ion-button size="small" fill="outline" shape="round"  href="/register">
         Registrarse
       </ion-button>
     </div>
     <div class="text-tag">
-      <span>Or via Social Media</span>
+      <span style="text-align: center;">Or via Social Media</span>
     </div>
     <div class="social-btns">
 
@@ -48,6 +51,6 @@
 
     </div>
 
-
+  </div>
 
 </ion-content>
